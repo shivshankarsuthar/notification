@@ -24,6 +24,7 @@ statusText: string;
     this.subscription = timer(0, this.interval).pipe(
       switchMap(() => this.alert.getNotifications())
     ).subscribe(result => this.alerts = result);
+    console.log(this.alerts);
 }
     
 

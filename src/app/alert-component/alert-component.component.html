@@ -10,13 +10,14 @@
                 <li class="list-group-item" *ngFor="let alert of pageOfItems">
                     <div class="row">
                         <div class="col-sm-1 icons">
-                            <fa-icon [icon]="warning" style="color:red;" *ngIf="(alert.alert_intensity | lowercase )== 'high'"></fa-icon>
-                            <fa-icon [icon]="warning" style="color:yellow;" *ngIf="(alert.alert_intensity | lowercase)== 'medium'"></fa-icon>
-                            <fa-icon [icon]="warning" style="color:green;" *ngIf="(alert.alert_intensity | lowercase) == 'low'"></fa-icon>
+                            <fa-icon [icon]="warning" style="color:red;" *ngIf="alert.status == 1"></fa-icon>
+                            <fa-icon [icon]="warning" style="color:#ffff00;" *ngIf="alert.status == 2"></fa-icon>
+                            <fa-icon [icon]="warning" style="color: #9900e6;" *ngIf="alert.status == 3"></fa-icon>
+                            <fa-icon [icon]="warning" style="color:green;" *ngIf="alert.status == 4"></fa-icon>
                         </div>
                         <div class="col-sm-11">
                             <span><a class="message" router-link="#">{{alert.message}}</a></span>
-                            <span class="severity text-secondary">Severity: {{alert.alert_intensity}} | </span><span class="text-secondary timestamp">{{alert.timestamp}}</span>
+                            <span class="severity text-secondary">Severity: {{alert.status}} | </span><span class="text-secondary timestamp">{{alert.date}} {{alert.time}}</span>
                         </div>
                     </div>
                 </li>

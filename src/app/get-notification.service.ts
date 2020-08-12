@@ -10,7 +10,7 @@ export class GetNotificationService {
   constructor(private http:HttpClient) { }
   getNotifications()
   {
-    let url="https://raw.githubusercontent.com/shivshankarsuthar/angularjs/master/dummy.json";
+    let url="https://notifi-cation.herokuapp.com/notification/?format=json";
     return this.http.get<[]>(url);
   }
 }
