@@ -1,0 +1,30 @@
+<div class="container">
+<div class="alert-box">
+    <div class="card bg-light mb-3">
+        <div class="card-header">
+            <h2 class="notification-header">Notifications</h2>
+            
+        </div>
+        <div class="card-body">
+            <ul class="alerts list-group">
+                <li class="list-group-item" *ngFor="let alert of pageOfItems">
+                    <div class="row">
+                        <div class="col-sm-1 icons">
+                            <fa-icon [icon]="warning" style="color:red;" *ngIf="(alert.alert_intensity | lowercase )== 'high'"></fa-icon>
+                            <fa-icon [icon]="warning" style="color:yellow;" *ngIf="(alert.alert_intensity | lowercase)== 'medium'"></fa-icon>
+                            <fa-icon [icon]="warning" style="color:green;" *ngIf="(alert.alert_intensity | lowercase) == 'low'"></fa-icon>
+                        </div>
+                        <div class="col-sm-11">
+                            <span><a class="message" router-link="#">{{alert.message}}</a></span>
+                            <span class="severity text-secondary">Severity: {{alert.alert_intensity}} | </span><span class="text-secondary timestamp">{{alert.timestamp}}</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="card-footer">
+            <jw-pagination [items]="alerts"   disableDefaultStyles={true} (changePage)="onChangePage($event)" [pageSize] = 5 [maxPages] = 1></jw-pagination>
+        </div>
+    </div>
+</div>
+</div>
