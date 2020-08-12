@@ -17,7 +17,11 @@
                         </div>
                         <div class="col-sm-11">
                             <span><a class="message" router-link="#">{{alert.message}}</a></span>
-                            <span class="severity text-secondary">Severity: {{alert.status}} | </span><span class="text-secondary timestamp">{{alert.date}} {{alert.time}}</span>
+                            <span class="severity text-secondary" *ngIf="alert.status == 1">Severity: High | </span>
+                            <span class="severity text-secondary" *ngIf="alert.status == 2">Severity: Medium | </span>
+                            <span class="severity text-secondary" *ngIf="alert.status == 3">Severity: Low | </span>
+                            <span class="severity text-secondary" *ngIf="alert.status == 4">Severity: Very Low | </span>
+                            <span class="text-secondary timestamp">{{alert.date}} {{alert.time}}</span>
                         </div>
                     </div>
                 </li>
