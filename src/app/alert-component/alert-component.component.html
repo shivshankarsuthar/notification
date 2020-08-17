@@ -1,14 +1,15 @@
 <div class="container">
 <div class="alert-box">
     <div class="card bg-light mb-3">
-        <div class="card-header">
-            <h2 class="notification-header">Notifications</h2>
-            
+        <div class="card-header header">
+            <h2 style="float:left" class="notification-header">Notifications</h2>
+            <a style="float:right" href="#" class="notif"><span class="num">{{update ? update.length : 0}}</span></a>
         </div>
         <div class="card-body">
             <ul class="alerts list-group">
-                <li class="list-group-item" *ngFor="let alert of pageOfItems">
-                    <div class="row">
+                <li class="list-group-item" *ngFor="let alert of pageOfItems" [ngClass]="{'highlight':update.indexOf(alert.message+alert.date+alert.time) > -1}">
+                    <div class="row"  >
+                       
                         <div class="col-sm-1 icons">
                             <fa-icon [icon]="warning" style="color:red;" *ngIf="alert.status == 1"></fa-icon>
                             <fa-icon [icon]="warning" style="color:#ffff00;" *ngIf="alert.status == 2"></fa-icon>
@@ -22,13 +23,15 @@
                             <span class="severity text-secondary" *ngIf="alert.status == 3">Severity: Low | </span>
                             <span class="severity text-secondary" *ngIf="alert.status == 4">Severity: Very Low | </span>
                             <span class="text-secondary timestamp">{{alert.date}} {{alert.time}}</span>
+
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
         <div class="card-footer">
-            <jw-pagination [items]="alerts"   disableDefaultStyles={true} (changePage)="onChangePage($event)" [pageSize] = 5 [maxPages] = 1></jw-pagination>
+            <jw-pagination [items]="alerts" disableDefaultStyles={true} (changePage)="onChangePage($event)"  [pageSize] = 5 [maxPages] = 1></jw-pagination>
+            <p (click)="newupdates()">updatess</p>
         </div>
     </div>
 </div>

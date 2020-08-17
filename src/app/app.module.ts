@@ -7,11 +7,13 @@ import { AlertComponentComponent } from './alert-component/alert-component.compo
 import { HttpClientModule } from  '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { JwPaginationModule } from 'jw-angular-pagination';
+import { BellOnUpdatesComponent } from './bell-on-updates/bell-on-updates.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AlertComponentComponent
+    AlertComponentComponent,
+    BellOnUpdatesComponent
   ],
   imports: [
     BrowserModule,
